@@ -1,0 +1,94 @@
+@import url('https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@400;700;900&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --amethyst: #663399;
+  --deep-crimson: #800020;
+  --antique-gold: #CFB53B;
+}
+
+@layer base {
+  body {
+    @apply antialiased bg-amethyst min-h-screen;
+  }
+}
+
+.dark {
+  color-scheme: dark;
+}
+
+.site-header {
+  @apply bg-gradient-to-r from-[#2c1810] to-[#4a1818];
+  border: 4px double var(--antique-gold);
+  box-shadow: 
+    0 0 0 2px #2c1810,
+    0 0 15px rgba(207, 181, 59, 0.5);
+  position: relative;
+}
+
+.site-header::before,
+.site-header::after {
+  content: '';
+  position: absolute;
+  width: 20px;
+  height: 20px;
+  border: 2px solid var(--antique-gold);
+}
+
+.site-header::before {
+  top: -10px;
+  left: -10px;
+  border-right: none;
+  border-bottom: none;
+}
+
+.site-header::after {
+  bottom: -10px;
+  right: -10px;
+  border-left: none;
+  border-top: none;
+}
+
+.site-title {
+  font-family: 'Cinzel Decorative', cursive;
+  background: linear-gradient(45deg, var(--deep-crimson), #ff0033);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+/* Ancient style components */
+.ancient-panel {
+  @apply bg-opacity-95 bg-[#2c1810] border border-[#CFB53B] shadow-lg;
+  box-shadow: 0 0 10px rgba(207, 181, 59, 0.3);
+}
+
+.ancient-input {
+  @apply bg-opacity-80 bg-[#2c1810] border border-[#CFB53B] text-white focus:ring-2 focus:ring-[#CFB53B] focus:border-[#CFB53B];
+}
+
+.ancient-input:focus {
+  box-shadow: 0 0 5px var(--antique-gold);
+  outline: none;
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  @apply bg-transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  @apply bg-gray-300 dark:bg-gray-600 rounded-full;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  @apply bg-gray-400 dark:bg-gray-500;
+}
